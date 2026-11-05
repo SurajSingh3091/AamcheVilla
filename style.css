@@ -218,7 +218,7 @@ a {
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
-
+  position: relative;
   color: var(--color-white);
 
   display: flex;
