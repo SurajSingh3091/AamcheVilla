@@ -1,0 +1,2207 @@
+/* =====================================================
+   01. AAMCHE VILLA — DESIGN SYSTEM
+===================================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #173b35;
+  --color-primary-light: #244b43;
+  --color-gold: #c9a45c;
+  --color-gold-hover: #dfc17f;
+
+  /* Background Colors */
+  --color-background: #f8f6f1;
+  --color-white: #ffffff;
+
+  /* Text Colors */
+  --color-text: #333333;
+  --color-muted: #777777;
+  --color-border: #e8e2d7;
+
+  /* Typography */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Layout */
+  --section-padding: 80px;
+  --container-width: 1200px;
+
+  /* Animation */
+  --transition-default: 0.3s ease;
+}
+
+/* =====================================================
+   02. GLOBAL STYLES & TYPOGRAPHY
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+a {
+  transition: color var(--transition-default);
+}
+
+/* =========================================
+   HERO STORY — MINIMALIST CHAOS TO STILLNESS
+========================================= */
+
+.hero-story {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 90%;
+  text-align: center;
+
+  color: #111111;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Main phrase */
+.hero-story-words {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+
+  margin: 0;
+
+  font-family: var(--font-heading);
+  color: #111111;
+}
+
+/* Opening word */
+.story-chaos {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* Transition phrase */
+.story-transition {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 300;
+  color: #111111;
+}
+
+/* Final word */
+.story-stillness {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+  font-style: italic;
+  color: #111111;
+}
+
+/* Minimal golden arrow */
+.story-arrow {
+  position: relative;
+
+  width: 250px;
+  height: 1px;
+
+  background-color: var(--color-gold);
+  margin: 18px auto 14px;
+}
+
+/* Arrow head */
+.story-arrow::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  top: -4px;
+
+  width: 10px;
+  height: 10px;
+
+  border-top: 1px solid var(--color-gold);
+  border-right: 1px solid var(--color-gold);
+
+  transform: rotate(45deg);
+}
+
+/* Tagline */
+.hero-story-tagline {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+
+  margin: 0;
+  color: #111111;
+}
+
+/* =========================================
+   RESPONSIVE HERO STORY
+========================================= */
+
+@media (max-width: 767.98px) {
+  .hero-story {
+    top: 28%;
+    width: 95%;
+  }
+
+  .hero-story-words {
+    gap: 7px;
+  }
+
+  .story-chaos,
+  .story-stillness {
+    font-size: clamp(26px, 2.8vw, 39px);
+  }
+
+  .story-transition {
+    font-size: 13px;
+  }
+
+  .story-arrow {
+    width: 70px;
+    margin: 14px auto 10px;
+  }
+
+  .hero-story-tagline {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* =====================================================
+   03. HERO SECTION
+===================================================== */
+
+.hero {
+  min-height: max(700px, 100vh);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.1) 45%,
+      rgba(0, 0, 0, 0) 75%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 50%),
+    url("assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+
+  color: var(--color-white);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px 0;
+  transform: translateY(190px);
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(46px, 4.5vw, 68px);
+  font-weight: 500;
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-family: var(--font-body);
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.5;
+
+  margin-bottom: 32px;
+}
+
+/* Navbar Logo */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar-logo {
+  width: 250px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .navbar-logo {
+    width: 190px;
+  }
+}
+
+/* =====================================================
+   04. NAVIGATION
+===================================================== */
+
+/* Desktop Navbar */
+
+.hero .navbar {
+  padding: 24px 0;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--color-white);
+}
+
+.navbar .nav-link {
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 18px;
+
+  transition: color var(--transition-default);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--color-gold);
+}
+
+/* Navbar Hamburger Button */
+
+.navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(201, 164, 92, 0.5);
+}
+
+/* Navbar Logo */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar-logo {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .navbar-logo {
+    width: 190px;
+  }
+}
+
+/* =====================================================
+   05. BUTTONS
+===================================================== */
+
+.btn-gold {
+  display: inline-block;
+
+  background-color: var(--color-gold);
+  color: var(--color-primary);
+
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 4px;
+
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: var(--color-gold-hover);
+  color: var(--color-primary);
+
+  transform: translateY(-2px);
+}
+
+/* Hero CTA Button */
+
+.hero-content .btn-gold {
+  width: fit-content;
+  padding: 14px 32px;
+}
+
+/* =====================================================
+   06. VILLA INTRODUCTION
+===================================================== */
+
+.villa-intro {
+  background-color: var(--color-background);
+  padding: 60px 0;
+}
+
+/* Section Eyebrow Label */
+
+.section-label {
+  color: #b89550;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+/* Section Heading */
+
+.section-title {
+  color: var(--color-primary);
+
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Section Description */
+
+.section-description {
+  color: #666666;
+
+  font-size: 18px;
+  line-height: 1.8;
+
+  margin-top: 20px;
+}
+
+/* =====================================================
+   07. VILLA HIGHLIGHT CARDS
+===================================================== */
+
+.highlight-card {
+  height: 100%;
+  padding: 30px 20px;
+
+  background-color: var(--color-white);
+
+  text-align: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.highlight-card h3 {
+  color: var(--color-primary);
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.highlight-card p {
+  color: var(--color-muted);
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   08. GOOGLE RATING
+===================================================== */
+
+.google-rating {
+  border-top: 1px solid var(--color-border);
+  padding-top: 30px;
+}
+
+.rating-label {
+  color: #555555;
+  font-size: 16px;
+}
+
+.rating-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.rating-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.rating-stars {
+  color: #f4b400;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.rating-reviews {
+  color: #666666;
+  margin-top: 8px;
+}
+
+/* =====================================================
+   09. GUEST REVIEWS
+===================================================== */
+
+/* Reviews Section */
+
+.guest-reviews {
+  background-color: var(--color-background);
+}
+
+.guest-reviews .section-heading {
+  margin-bottom: 35px;
+}
+
+/* Review Card */
+
+.review-card {
+  height: 100%;
+  min-height: 0;
+
+  padding: 24px 26px;
+
+  background-color: var(--color-white);
+
+  border: 1px solid rgba(23, 59, 53, 0.1);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(23, 59, 53, 0.07);
+}
+
+/* Review Header */
+
+.review-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.review-card-header h3 {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+
+/* Review Source */
+
+.review-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.review-source i {
+  color: #4285f4;
+  font-size: 15px;
+}
+
+/* Review Stars */
+
+.review-stars {
+  color: var(--color-gold);
+  font-size: 15px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* Review Content */
+
+.review-text {
+  color: var(--color-text);
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   10. FOOTER — UPPER LIGHT SECTION
+===================================================== */
+
+/* Footer Main Container */
+
+.villa-footer {
+  position: relative;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  padding: 45px 0 0;
+}
+
+/* Reviews-to-Footer Divider */
+
+.villa-footer::before {
+  content: "";
+
+  display: block;
+
+  width: 80%;
+  max-width: 970px;
+  height: 1px;
+
+  background-color: var(--color-gold);
+  opacity: 0.4;
+
+  margin: 0 auto 45px;
+}
+
+/* Footer Column Layout */
+
+.footer-main {
+  align-items: flex-start;
+  row-gap: 35px;
+}
+
+.footer-main > div {
+  min-width: 0;
+}
+
+/* Branding Column */
+
+.footer-brand-column {
+  padding-right: 30px;
+}
+
+/* Other Footer Columns */
+
+.footer-links-column,
+.footer-reservations-column,
+.footer-location-column {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* =====================================================
+   11. FOOTER — BRANDING & DESCRIPTION
+===================================================== */
+
+/* Villa Brand */
+
+.footer-brand {
+  display: inline-block;
+
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 600;
+
+  color: var(--color-primary);
+  text-decoration: none;
+
+  margin-bottom: 10px;
+}
+
+.footer-brand:hover {
+  color: var(--color-gold);
+}
+
+/* Tagline */
+
+.footer-tagline {
+  color: var(--color-gold);
+
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+/* Description */
+
+.footer-description {
+  color: var(--color-text);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   12. FOOTER — HEADINGS & QUICK LINKS
+===================================================== */
+
+/* Footer Headings */
+
+.footer-heading {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+
+  color: var(--color-primary);
+
+  margin-bottom: 22px;
+}
+
+/* Footer Link List */
+
+.footer-links {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+/* Footer Links */
+
+.footer-links a,
+.footer-location-link {
+  color: var(--color-muted);
+
+  font-size: 14px;
+  text-decoration: none;
+
+  transition: color var(--transition-default);
+}
+
+.footer-links a:hover,
+.footer-location-link:hover {
+  color: var(--color-gold);
+}
+
+/* =====================================================
+   13. FOOTER — INSTAGRAM
+===================================================== */
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--color-primary);
+  text-decoration: none;
+
+  font-size: 14px;
+  margin-top: 10px;
+
+  transition: color var(--transition-default);
+}
+
+/* Instagram Brand Icon */
+
+.footer-social i {
+  font-size: 20px;
+
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-social:hover {
+  color: var(--color-gold);
+}
+
+/* =====================================================
+   14. FOOTER — WHATSAPP BOOKING
+===================================================== */
+
+.footer-booking-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--color-gold);
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-top: 5px;
+
+  transition: color var(--transition-default);
+}
+
+/* WhatsApp Brand Icon */
+
+.footer-booking-link i {
+  font-size: 20px;
+  color: #25d366;
+}
+
+.footer-booking-link:hover {
+  color: var(--color-primary);
+}
+
+/* =====================================================
+   15. FOOTER — DARK COPYRIGHT STRIP
+===================================================== */
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  position: relative;
+
+  background-color: var(--color-primary);
+
+  margin-top: 45px;
+  padding: 22px 30px;
+
+  /* Extend the green background beyond the container */
+  box-shadow: 0 0 0 100vmax var(--color-primary);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Copyright Text */
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 13px;
+  margin: 0;
+}
+
+/* =====================================================
+   16. RESPONSIVE DESIGN — TABLET
+===================================================== */
+
+@media (max-width: 991.98px) {
+  /* Hero Background */
+
+  .hero {
+    background-position: center;
+  }
+
+  /* Mobile Navigation — Transparent */
+
+  .hero .navbar {
+    padding: 15px 0;
+  }
+
+  .navbar-collapse {
+    margin-top: 15px;
+    padding: 10px 0;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .navbar-nav {
+    align-items: stretch !important;
+    gap: 8px;
+  }
+
+  .navbar .nav-link {
+    margin-left: 0;
+    padding: 10px 5px;
+  }
+
+  .navbar .nav-item.ms-lg-3 {
+    margin-left: 0 !important;
+  }
+
+  .navbar .nav-item .btn-gold {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  /* Footer Column Spacing */
+
+  .footer-brand-column {
+    padding-right: 15px;
+  }
+
+  .footer-links-column,
+  .footer-reservations-column,
+  .footer-location-column {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* =====================================================
+   17. RESPONSIVE DESIGN — MOBILE
+===================================================== */
+
+@media (max-width: 767.98px) {
+  /* Hero */
+
+  .hero {
+    min-height: max(650px, 100vh);
+    background-position: center;
+  }
+
+  .hero-content {
+    padding: 40px 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(40px, 10vw, 56px);
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  /* Villa Introduction */
+
+  .villa-intro {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .section-description {
+    font-size: 16px;
+  }
+
+  /* Google Rating */
+
+  .rating-score {
+    gap: 8px;
+  }
+
+  .rating-number {
+    font-size: 28px;
+  }
+
+  .rating-stars {
+    font-size: 22px;
+  }
+
+  /* Guest Reviews */
+
+  .guest-reviews .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .review-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .review-card-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .review-card-header h3 {
+    font-size: 16px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Footer */
+
+  .villa-footer {
+    padding-top: 35px;
+  }
+
+  .villa-footer::before {
+    width: 90%;
+    margin-bottom: 35px;
+  }
+
+  .footer-main {
+    row-gap: 30px;
+    text-align: center;
+  }
+
+  .footer-brand-column {
+    padding-right: 15px;
+  }
+
+  .footer-heading {
+    margin-bottom: 15px;
+  }
+
+  /* Copyright Strip */
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+
+    gap: 8px;
+    padding: 22px 15px;
+
+    margin-top: 35px;
+  }
+}
+
+/* =====================================================
+   18. RESPONSIVE DESIGN — SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  /* Hero */
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+  }
+
+  /* Section Headings */
+
+  .section-title {
+    font-size: 27px;
+  }
+
+  /* Highlight Cards */
+
+  .highlight-card {
+    padding: 25px 15px;
+  }
+
+  .highlight-card h3 {
+    font-size: 22px;
+  }
+
+  /* Google Rating */
+
+  .rating-score {
+    flex-wrap: wrap;
+  }
+}
+
+/* Google Reviews Link */
+.google-review-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+
+  transition:
+    color var(--transition-default),
+    opacity var(--transition-default);
+}
+
+.google-review-link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.google-review-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* =====================================================
+   19. THE VILLA PAGE
+===================================================== */
+
+/* -----------------------------------------------------
+   19.1 Villa Page Navbar
+   Keep the same layout as homepage, but use dark text
+   because this page has a light background.
+----------------------------------------------------- */
+
+.villa-page {
+  background-color: var(--color-background);
+}
+
+.villa-navbar {
+  background-color: var(--color-background);
+  padding: 12px 0;
+}
+
+.villa-navbar .navbar-logo {
+  width: 250px;
+  max-height: 85px;
+  object-fit: contain;
+}
+
+.villa-navbar .nav-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.villa-navbar .nav-link:hover,
+.villa-navbar .nav-link:focus,
+.villa-navbar .nav-link.active {
+  color: var(--color-gold);
+}
+
+.villa-navbar .navbar-toggler {
+  border-color: var(--color-primary);
+}
+
+.villa-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(201, 164, 92, 0.4);
+}
+
+/* -----------------------------------------------------
+   19.2 Villa Introduction — Refined Hero
+----------------------------------------------------- */
+
+.villa-page-hero {
+  position: relative;
+  background-color: var(--color-background);
+  padding: 25px 0 15px;
+  overflow: hidden;
+}
+
+/* Small decorative ornament */
+.villa-hero-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+}
+
+.villa-hero-ornament span {
+  display: block;
+  width: 35px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.villa-hero-ornament i {
+  font-size: 25px;
+}
+
+/* Location eyebrow */
+.villa-hero-eyebrow {
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+/* Main heading */
+.villa-page-hero h1 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 600;
+  line-height: 1.12;
+  margin-bottom: 25px;
+}
+
+/* Description */
+.villa-hero-description {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.villa-page-hero .lead {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.8;
+  margin: 0 auto 25px;
+}
+
+/* Hero buttons */
+.villa-hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.villa-hero-actions .btn {
+  padding: 13px 25px;
+}
+
+/* Gallery scroll cue */
+.villa-hero-scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-top: 2px;
+
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: color var(--transition-default);
+}
+
+.villa-hero-scroll i {
+  color: var(--color-gold);
+  font-size: 23px;
+  transition: transform var(--transition-default);
+}
+
+.villa-hero-scroll:hover {
+  color: var(--color-primary);
+}
+
+.villa-hero-scroll:hover i {
+  transform: translateY(4px);
+}
+
+/* Responsive hero */
+@media (max-width: 767.98px) {
+  .villa-page-hero {
+    padding: 35px 0 25px;
+  }
+
+  .villa-hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  .villa-page-hero h1 {
+    font-size: clamp(34px, 8vw, 44px);
+    line-height: 1.15;
+  }
+
+  .villa-page-hero .lead {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .villa-hero-actions {
+    gap: 12px;
+  }
+
+  .villa-hero-actions .btn {
+    padding: 11px 18px;
+    font-size: 16px;
+  }
+
+  .villa-hero-scroll {
+    margin-top: 25px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+}
+
+.villa-palm-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+/* =====================================================
+   VILLA PAGE — LUXURY CAROUSEL
+===================================================== */
+
+/* Carousel outer frame */
+.villa-carousel {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+/* Carousel frame */
+.villa-carousel .carousel-inner {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Consistent image sizing */
+.villa-carousel-image {
+  display: block;
+  width: 100%;
+  height: clamp(400px, 55vw, 700px);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Caption overlay */
+.villa-carousel .carousel-item {
+  position: relative;
+}
+
+.villa-carousel .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 35%,
+    rgba(0, 0, 0, 0) 65%
+  );
+
+  pointer-events: none;
+}
+
+/* Caption positioning */
+.villa-carousel .carousel-caption {
+  z-index: 2;
+  bottom: 8%;
+  text-align: center;
+}
+
+/* Caption heading */
+.villa-carousel .carousel-caption h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+/* Caption description */
+.villa-carousel .carousel-caption p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--color-white);
+  margin-bottom: 0;
+}
+
+/* Carousel arrows */
+.villa-carousel .carousel-control-prev,
+.villa-carousel .carousel-control-next {
+  z-index: 3;
+  width: 8%;
+  opacity: 0.75;
+  transition: opacity var(--transition-default);
+}
+
+.villa-carousel .carousel-control-prev:hover,
+.villa-carousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  .villa-carousel {
+    padding: 8px;
+  }
+
+  .villa-carousel-image {
+    height: 400px;
+  }
+
+  .villa-carousel .carousel-caption {
+    bottom: 6%;
+    left: 10%;
+    right: 10%;
+  }
+
+  .villa-carousel .carousel-caption h2 {
+    font-size: 1.8rem;
+  }
+
+  .villa-carousel .carousel-caption p {
+    font-size: 0.95rem;
+  }
+
+  .villa-carousel .carousel-control-prev,
+  .villa-carousel .carousel-control-next {
+    width: 12%;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 575.98px) {
+  .villa-carousel-image {
+    height: 300px;
+  }
+
+  .villa-carousel .carousel-caption h2 {
+    font-size: 24px;
+  }
+
+  .villa-carousel .carousel-caption p {
+    font-size: 14px;
+  }
+}
+
+/* -----------------------------------------------------
+   19.4 Villa Highlights
+----------------------------------------------------- */
+
+.villa-highlights {
+  background-color: #ffffff;
+  padding: 70px 0;
+}
+
+.villa-highlights .row {
+  align-items: stretch;
+}
+
+.villa-highlights .col-md-4 {
+  padding: 20px 30px;
+}
+
+.villa-highlight-icon {
+  display: inline-block;
+  color: var(--color-gold);
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.villa-highlights h2 {
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.villa-highlights p {
+  max-width: 350px;
+  margin: 0 auto;
+  color: var(--color-muted);
+}
+
+/* -----------------------------------------------------
+   19.5 Villa Feature Sections
+----------------------------------------------------- */
+
+.villa-feature-section {
+  padding: 85px 0;
+  background-color: var(--color-background);
+}
+
+.villa-feature-section:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.villa-feature-section h2 {
+  color: var(--color-primary);
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+
+.villa-feature-section .lead {
+  color: var(--color-primary-light);
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+.villa-feature-section p {
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+.villa-feature-image {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* -----------------------------------------------------
+   19.6 Villa Enquiry CTA
+----------------------------------------------------- */
+
+.villa-enquiry-section {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 85px 0;
+}
+
+.villa-enquiry-section h2 {
+  color: var(--color-white);
+  font-size: clamp(30px, 3vw, 44px);
+  margin-bottom: 20px;
+}
+
+.villa-enquiry-section .lead {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 20px;
+}
+
+.villa-enquiry-section .btn-gold {
+  padding: 15px 30px;
+}
+
+/* -----------------------------------------------------
+   19.7 Responsive Adjustments
+----------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+  .villa-navbar .navbar-logo {
+    width: 210px;
+    max-height: 75px;
+  }
+
+  .villa-navbar .navbar-collapse {
+    padding: 15px 0;
+  }
+
+  .villa-navbar .nav-link {
+    margin-left: 0;
+    padding: 10px 0;
+  }
+
+  .villa-navbar .nav-item .btn-gold {
+    margin-top: 10px;
+  }
+
+  .villa-page-hero {
+    padding: 50px 0 35px;
+  }
+
+  .villa-feature-section {
+    padding: 60px 0;
+  }
+
+  .villa-feature-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .villa-navbar .navbar-logo {
+    width: 175px;
+    max-height: 65px;
+  }
+
+  .villa-page-hero h1 {
+    font-size: 34px;
+  }
+
+  .villa-page-hero .lead {
+    font-size: 16px;
+  }
+
+  .villa-carousel-image {
+    height: 300px;
+  }
+
+  .villa-carousel-section .carousel-caption {
+    bottom: 8%;
+  }
+
+  .villa-carousel-section .carousel-caption h2 {
+    font-size: 24px;
+  }
+
+  .villa-carousel-section .carousel-caption p {
+    font-size: 14px;
+  }
+
+  .villa-highlights {
+    padding: 45px 0;
+  }
+
+  .villa-highlights .col-md-4 {
+    padding: 20px 15px;
+  }
+
+  .villa-feature-section {
+    padding: 45px 0;
+  }
+
+  .villa-feature-image {
+    height: 280px;
+  }
+
+  .villa-feature-section h2 {
+    font-size: 30px;
+  }
+
+  .villa-feature-section .lead {
+    font-size: 18px;
+  }
+
+  .villa-enquiry-section {
+    padding: 55px 0;
+  }
+}
+
+/* -----------------------------------------------------
+   19.8 Accessibility: Respect Reduced Motion
+----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .villa-page *,
+  .villa-page *::before,
+  .villa-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   19.9 HOST MESSAGE — PERSONAL HOSPITALITY
+===================================================== */
+
+.host-message-section {
+  background-color: var(--color-background);
+  padding: 100px 0;
+}
+
+.host-message-section .row {
+  --bs-gutter-x: 4rem;
+}
+
+/* Host message content */
+.host-message-content {
+  padding-right: 30px;
+}
+
+.host-message-content .section-label {
+  display: inline-block;
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.host-message-content h2 {
+  color: var(--color-primary);
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.host-message-content p {
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  max-width: 620px;
+}
+
+/* Host signature */
+.host-message-content .host-signature {
+  margin-top: 30px;
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+.host-message-content .host-signature strong {
+  display: inline-block;
+  margin-top: 8px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Host photo */
+.host-message-image {
+  position: relative;
+  z-index: 1;
+}
+
+.host-message-image img {
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .host-message-section {
+    padding: 70px 0;
+  }
+
+  .host-message-content {
+    padding-right: 12px;
+  }
+
+  .host-message-image img {
+    height: 450px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .host-message-section {
+    padding: 50px 0;
+  }
+
+  .host-message-section .row {
+    --bs-gutter-x: 1.5rem;
+    row-gap: 35px;
+  }
+
+  .host-message-content h2 {
+    font-size: 34px;
+  }
+
+  .host-message-content p {
+    font-size: 15px;
+  }
+
+  .host-message-image img {
+    height: 420px;
+  }
+}
+
+.villa-hero-eyebrow {
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* =====================================================
+   LOCATION PAGE
+===================================================== */
+
+/* Location hero */
+.location-hero-section {
+  background-color: var(--color-background);
+  padding: 45px 0 30px;
+}
+
+.location-hero-content {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* Eyebrow */
+.location-eyebrow {
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Hero heading */
+.location-hero-content h1 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+/* Hero description */
+.location-hero-description {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.8;
+}
+
+/* Map image container */
+.location-map-wrapper {
+  margin-top: 40px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--color-background);
+}
+
+/* Map image */
+.location-map-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Map caption */
+.location-map-caption {
+  margin-top: 15px;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.location-map-caption i {
+  color: var(--color-gold);
+  margin-right: 5px;
+}
+
+/* =====================================================
+   LOCATION DISTANCE HIGHLIGHTS
+===================================================== */
+
+.location-distance-section {
+  background-color: var(--color-background);
+  padding: 40px 0 10px;
+}
+
+.location-distance-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+
+.location-distance-heading h2 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.location-distance-heading > p:last-child {
+  color: var(--color-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Distance cards */
+.location-distance-card {
+  height: 100%;
+  padding: 8px 8px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.location-distance-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(23, 59, 53, 0.08);
+}
+
+/* Distance number */
+.location-distance {
+  display: block;
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Destination name */
+.location-distance-card h3 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Destination description */
+.location-distance-card p {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   LOCATION PAGE — RESPONSIVE
+===================================================== */
+
+@media (max-width: 767.98px) {
+  .location-hero-section {
+    padding: 35px 0 20px;
+  }
+
+  .location-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .location-hero-content h1 {
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  .location-hero-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .location-map-wrapper {
+    margin-top: 25px;
+    border-radius: 4px;
+  }
+
+  .location-distance-section {
+    padding: 45px 0 60px;
+  }
+
+  .location-distance-heading {
+    margin-bottom: 30px;
+  }
+
+  .location-distance-card {
+    padding: 22px 12px;
+  }
+
+  .location-distance {
+    font-size: 27px;
+  }
+
+  .location-distance-card h3 {
+    font-size: 17px;
+  }
+
+  .location-distance-card p {
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   CONTACT / BOOKING PAGE
+===================================================== */
+
+/* Booking hero */
+.booking-hero-section {
+  background-color: var(--color-background);
+  padding: 10px 0 5px;
+}
+
+.booking-eyebrow {
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.booking-hero-section h1 {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.15;
+  margin-bottom: 25px;
+}
+
+.booking-eyebrow {
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.booking-hero-description {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Booking section */
+.booking-options-section {
+  background-color: var(--color-background);
+  padding: 25px 0 20px;
+}
+
+.booking-section-heading {
+  margin-bottom: 45px;
+}
+
+.booking-section-heading h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+/* Booking cards */
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  height: 100%;
+  min-height: 390px;
+  padding: 38px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.booking-card-direct {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.booking-card-platform {
+  background-color: var(--color-white);
+}
+
+/* Platform logo container */
+.booking-platform-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+/* General platform logo */
+.booking-platform-logo img {
+  display: block;
+
+  width: auto;
+  height: 48px;
+  max-width: 190px;
+
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Airbnb logo */
+.booking-platform-logo-airbnb img {
+  width: 150px;
+  height: 48px;
+  max-width: 100%;
+}
+
+/* MakeMyTrip logo */
+.booking-platform-logo-mmt img {
+  width: 180px;
+  height: 48px;
+  max-width: 100%;
+}
+
+/* Existing Bootstrap icon cards */
+.booking-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 60px;
+  margin-bottom: 20px;
+
+  color: var(--color-gold);
+  font-size: 32px;
+}
+
+/* Card typography */
+.booking-card h3 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.booking-card-direct h3 {
+  color: var(--color-white);
+}
+
+.booking-card-platform h3 {
+  color: var(--color-primary);
+}
+
+.booking-card > p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.booking-card-platform > p {
+  color: var(--color-muted);
+}
+
+.booking-card-direct > p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Direct booking badge */
+.booking-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  margin-bottom: 25px;
+}
+
+/* Direct booking offer */
+.direct-booking-benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 25px;
+
+  background-color: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--color-gold);
+}
+
+.direct-booking-benefit span {
+  color: var(--color-gold);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.direct-booking-benefit strong {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 24px;
+}
+
+.direct-booking-benefit small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Booking buttons */
+.booking-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: auto;
+  padding: 12px 22px;
+
+  font-weight: 600;
+}
+
+.booking-card-footnote {
+  margin-top: 15px;
+  margin-bottom: 0 !important;
+  font-size: 12px !important;
+}
+/* =========================================================
+   21. CONTACT PAGE — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .booking-hero-section {
+    padding: 15px 0 10px;
+  }
+
+  .booking-hero-description {
+    font-size: 15px;
+  }
+
+  .booking-options-section {
+    padding: 20px 0 10px;
+  }
+
+  .booking-section-heading {
+    margin-bottom: 30px;
+  }
+
+  .booking-card {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .booking-card h3 {
+    font-size: 25px;
+  }
+
+  .booking-card-button {
+    width: 100%;
+  }
+
+  .direct-booking-benefit strong {
+    font-size: 22px;
+  }
+}

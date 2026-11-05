@@ -1,0 +1,65 @@
+<div
+  class="modal fade"
+  id="enquiryModal"
+  tabindex="-1"
+  aria-labelledby="enquiryModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content enquiry-modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title" id="enquiryModalLabel">Plan Your Stay</h5>
+          <p class="mb-0">Tell us a little about your visit.</p>
+        </div>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="enquiryForm">
+          <div class="mb-3">
+            <label for="guestName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="guestName" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="guestPhone" class="form-label">Mobile Number</label>
+            <input type="tel" class="form-control" id="guestPhone" required />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="checkInDate" class="form-label">Check-in</label>
+              <input
+                type="date"
+                class="form-control"
+                id="checkInDate"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="checkOutDate" class="form-label">Check-out</label>
+              <input
+                type="date"
+                class="form-control"
+                id="checkOutDate"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold w-100">
+            Send Enquiry on WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
